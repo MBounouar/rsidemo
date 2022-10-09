@@ -1,6 +1,10 @@
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![codecov](https://codecov.io/github/MBounouar/rsidemo/branch/main/graph/badge.svg?token=1H51ZECQ7H)](https://codecov.io/github/MBounouar/rsidemo)
+[![CodeFactor](https://www.codefactor.io/repository/github/mbounouar/rsidemo/badge)](https://www.codefactor.io/repository/github/mbounouar/rsidemo)
+
 # rsidemo
 
-Basic Demo for
+Basic Demo
 
 ## Installation
 
