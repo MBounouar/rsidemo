@@ -33,7 +33,7 @@ class Instrument:
         start_date: Union[str, pd.Timestamp],
         end_date: Union[str, pd.Timestamp],
         freq: str = "D",
-    ) -> None:
+    ) -> Union[pd.Series[Any], pd.DataFrame]:
         if self.name != "ETHBTC":
             raise ValueError(
                 f"Sorry only random data for {self.name} is possible at the moment"
@@ -50,13 +50,38 @@ class Instrument:
 
     def rsi_signal(
         self,
-        start_date,
-        end_date,
+        start_date: Union[str, pd.Timestamp],
+        end_date: Union[str, pd.Timestamp],
         price_col="close",
         freq="Min",
-        rsi_bounds=(30, 70),
+        rsi_bounds: tuple[float, float] = (30, 70),
         **kwargs,
-    ) -> dict[str, Any]:
+    ) -> pd.Series:
+        """Relative Strength Index (RSI)
+
+        Parameters
+        ----------
+        start_date : Union[str, pd.Timestamp]
+            start date
+        end_date : Union[str, pd.Timestamp]
+            end date
+        price_col : str, optional
+            can be 'open, 'high', 'low' or 'close', by default "close"
+        freq : str, optional
+            pandas DateOffset by default "Min"
+        rsi_bounds : tuple[float, float], optional
+            upper and lower bound for the calculation of frequency bound breach, by default (30, 70)
+
+        Returns
+        -------
+        pd.Series
+            rsi timeseries
+
+        Raises
+        ------
+        ValueError
+            if 'price_col' not valid
+        """
 
         if price_col not in PRICE_COLS:
             raise ValueError(f"{price_col} not in {PRICE_COLS}")
@@ -89,7 +114,29 @@ class Instrument:
 
         return self.rsi
 
-    def trade_frequency_by_hour(self, start_date, end_date):
+    def trade_frequency_by_hour(
+        self,
+        start_date: Union[str, pd.Timestamp],
+        end_date: Union[str, pd.Timestamp],
+    ) -> pd.DataFrame:
+        """Resample the minutely trade numbers to hours
+
+        This is mainly used for the histogram plot
+
+
+        Parameters
+        ----------
+        start_date : Union[str, pd.Timestamp]
+            start date
+        end_date : Union[str, pd.Timestamp]
+            end date
+
+        Returns
+        -------
+        pd.Dataframe
+            minutely number of trades resampled to hour
+        """
+
         periods = len(pd.date_range(start=start_date, end=end_date, freq="Min"))
         df = (
             random_ohlcv(start_date, periods=periods)[["number_of_trades"]]

@@ -10,6 +10,22 @@ def random_ohlcv(
     periods: int,
     seed: int = 12345,
 ) -> pd.DataFrame:
+    """Returns random minute sample of OHLCV data
+
+    Parameters
+    ----------
+    start_date : Union[str, pd.Timestamp]
+        start date
+    periods : int
+        number of periods to return
+    seed : int, optional
+        random seed, by default 12345
+
+    Returns
+    -------
+    pd.DataFrame
+        OHLCV sampled data
+    """
     df = pd.read_json(
         Path(__file__).parent / "data/ethbtc.json.tar.gz", compression="infer"
     )

@@ -5,6 +5,20 @@ import pandas as pd
 
 
 def plot_rsi(data: pd.Series, title: str = "") -> go.Figure:
+    """RSI plot
+
+    Parameters
+    ----------
+    data : pd.Series
+        Series with RSI data
+    title : str, optional
+        title, by default ""
+
+    Returns
+    -------
+    go.Figure
+        plotly figure object
+    """  #
     fig = go.Figure()
 
     fig.add_trace(
@@ -56,6 +70,18 @@ def plot_rsi(data: pd.Series, title: str = "") -> go.Figure:
 
 
 def plot_average_trading_by_hour(data: pd.DataFrame) -> go.Figure:
+    """Average trading by hour plot
+
+    Parameters
+    ----------
+    data : pd.DataFrame
+
+
+    Returns
+    -------
+    go.Figure
+        plotly Figure object
+    """
     fig = go.Figure(
         go.Histogram(
             x=data["hour"].apply(lambda x: str(x) + "H"),
