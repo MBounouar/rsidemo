@@ -5,6 +5,7 @@ Basic Demo for
 ## Installation
 
 `git clone git@github.com:MBounouar/rsidemo.git`
+
 `pip install -e .`
 
 ## Usage example
@@ -39,3 +40,5 @@ Basic Demo for
 ```
 
 ## Output
+
+![RSI Plot](https://github.com/MBounouar/rsidemo/blob/develop/docs/rsi_plot.png?raw=true "Rsi Plot")
