@@ -7,6 +7,7 @@ def rsi(
     ma_type: str = "ema",
 ) -> pd.Series:
     """Relative Strenght Index (RSI)
+    code adapted from `https://www.roelpeters.be/many-ways-to-calculate-the-rsi-in-python-pandas/`
 
     Parameters
     ----------

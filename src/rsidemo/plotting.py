@@ -82,25 +82,3 @@ def plot_average_trading_by_hour(data: pd.DataFrame) -> go.Figure:
     )
 
     return fig
-
-
-if "__main__" == __name__:
-    from rsidemo.asset import Instrument
-
-    ethbtc = Instrument("ETHBTC")
-    # df = random_ohlcv("2000", periods=1000, freq="D")
-
-    df = ethbtc.trade_frequency_by_hour(start_date="2018 Jan", end_date="2018 Mar")
-    fig = plot_average_trading_by_hour(df)
-    fig.show()
-    # data = ethbtc.rsi_signal(
-    #     start_date="2018 Jan",
-    #     end_date="2020 Jan",
-    #     price_col="close",
-    #     window=8,
-    #     freq="M",
-    # )
-
-    # # print(data)
-    # fig = plot_rsi(data=data, title="ETH-BTC")
-    # fig.show()
