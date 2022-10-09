@@ -42,3 +42,4 @@ Basic Demo for
 ## Output
 
 ![RSI Plot](https://github.com/MBounouar/rsidemo/blob/develop/docs/rsi_plot.png?raw=true "Rsi Plot")
+![Trade Hist Plot](https://github.com/MBounouar/rsidemo/blob/develop/docs/trade_histo.png?raw=true "Trade Hist Plot")
