@@ -45,22 +45,6 @@ def rsi(
     else:
         raise ValueError(f"ma_type `{ma_type}` not recognized, must be `sma` or `ema`")
 
-    rsi = 100 - (100 / (1 + (ma_up / ma_down)))
-    rsi.name = "BLA"
+    rsi = 100.0 - (100.0 / (1.0 + (ma_up / ma_down)))
+    rsi.name = f"RSI: {prices.name} - {ma_type} - {window}"
     return rsi
-
-
-if "__main__" == __name__:
-    import numpy as np
-    import talib as ta
-
-    rand = np.random.RandomState(1337)
-    ret = pd.Series(
-        rand.randn(1, 120)[0] / 100.0,
-        index=pd.date_range("2000-1-30", periods=120, freq="M"),
-    )
-
-    rr = rsi(ret * 100, ma_type="ema")
-    print(rr)
-    print(rr.name)
-    print(ta.RSI(rr, timeperiod=14))

@@ -32,5 +32,6 @@ target-version = ['py39', 'py310']
 [[tool.mypy.overrides]]
 module = [
     "plotly",
+    "plotly.graph_objects",
 ]
 ignore_missing_imports = true
