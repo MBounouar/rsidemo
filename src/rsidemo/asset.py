@@ -3,7 +3,7 @@ import pandas as pd
 
 # from functools import lru_cache
 from .stats import rsi
-from typing import Union, Any
+from typing import Union
 from .data import random_ohlcv
 
 PRICE_COLS = ["open", "high", "low", "close"]
@@ -33,7 +33,7 @@ class Instrument:
         start_date: Union[str, pd.Timestamp],
         end_date: Union[str, pd.Timestamp],
         freq: str = "D",
-    ) -> Union[pd.Series[Any], pd.DataFrame]:
+    ) -> Union[pd.Series, pd.DataFrame]:
         if self.name != "ETHBTC":
             raise ValueError(
                 f"Sorry only random data for {self.name} is possible at the moment"
