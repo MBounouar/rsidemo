@@ -105,10 +105,10 @@ class Instrument:
                 f"{'below ' if i==0 else 'above '}{x}" for i, x in enumerate(rsi_bounds)
             ],
         )
-        self.rsi_bounds.loc[f"below {rsi_bounds[0]}"] = (
+        self.rsi_bounds.loc["RSI percentage", f"below {rsi_bounds[0]}"] = (
             self.rsi.dropna() < rsi_bounds[0]
         ).value_counts().get(True, 0) / len(self.rsi.dropna())
-        self.rsi_bounds.loc[f"above {rsi_bounds[1]}"] = (
+        self.rsi_bounds.loc["RSI percentage", f"above {rsi_bounds[1]}"] = (
             self.rsi.dropna() > rsi_bounds[1]
         ).value_counts().get(True, 0) / len(self.rsi.dropna())
 
