@@ -57,5 +57,5 @@ fig2.show()
 
 ## Output
 
-![RSI Plot](https://github.com/MBounouar/rsidemo/blob/develop/docs/rsi_plot.png?raw=true "Rsi Plot")
-![Trade Hist Plot](https://github.com/MBounouar/rsidemo/blob/develop/docs/trade_histo.png?raw=true "Trade Hist Plot")
+![RSI Plot](https://github.com/MBounouar/rsidemo/blob/main/docs/rsi_plot.png?raw=true "Rsi Plot")
+![Trade Hist Plot](https://github.com/MBounouar/rsidemo/blob/main/docs/trade_histo.png?raw=true "Trade Hist Plot")
